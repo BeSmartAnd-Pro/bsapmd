@@ -1,0 +1,7 @@
+token: "your_token"
+restart_hook: "/usr/sbin/service apache2 restart"
+certificates:
+  - name: "cert1.pem"
+    path: "/etc/ssl/certs/cert1.pem"
+  - name: "cert2.pem"
+    path: "/etc/ssl/certs/cert2.pem"
