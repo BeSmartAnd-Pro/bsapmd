@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "bsapmd"
-version = "0.2.0"
-description = "BeSmartAndPro Monitoring Downloader"
+version = "0.2.1"
+description = "SSLBuddy.App Monitoring Downloader"
 authors = ["BeSmartAnd.Pro <hello@BeSmartAnd.Pro>"]
 license = "AGPL-3.0"
 readme = "README.md"

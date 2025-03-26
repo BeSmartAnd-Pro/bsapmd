@@ -1,5 +1,5 @@
 
-# BeSmartAndPro Monitoring Downloader
+# SSLBuddy.App Monitoring Downloader
 
 This Python application allows downloading certificates from the BeSmartAndPro monitoring service. It supports fetching certificates using an API token and can restart Apache automatically after downloading the certificates. The application can be configured via command-line arguments, environment variables, or a YAML configuration file.
 
@@ -26,24 +26,24 @@ bsapmd --token YOUR_TOKEN --cert_id ID --cert_path /path/to/save/cert.pem --rest
 
 The following environment variables are supported:
 
-- `MONITORING_BESMARTANDPRO_TOKEN`: API token for accessing the certificates.
-- `MONITORING_BESMARTANDPRO_CERT_ID`: The ID of the certificate to download.
-- `MONITORING_BESMARTANDPRO_CERT_PATH`: The path where the certificate will be saved.
+- `SSLBUDDY_TOKEN`: API token for accessing the certificates.
+- `SSLBUDDY_CERT_ID`: The ID of the certificate to download.
+- `SSLBUDDY_CERT_PATH`: The path where the certificate will be saved.
 
 Example:
 
 ```bash
-export MONITORING_BESMARTANDPRO_TOKEN="your_token"
-export MONITORING_BESMARTANDPRO_CERT_ID="ID"
-export MONITORING_BESMARTANDPRO_CERT_PATH="/etc/ssl/certs/cert1.pem"
+export SSLBUDDY_TOKEN="your_token"
+export SSLBUDDY_CERT_ID="ID"
+export SSLBUDDY_CERT_PATH="/etc/ssl/certs/cert1.pem"
 bsapmd
 ```
 
 ### 3. Configuration File
 
-You can also configure the application using a YAML file located at `/etc/besmartandpro/monitoring.yaml`. This file allows defining multiple certificates to download.
+You can also configure the application using a YAML file located at `/etc/besmartandpro/sslbuddy.yaml`. This file allows defining multiple certificates to download.
 
-Example configuration (`/etc/besmartandpro/monitoring.yaml`):
+Example configuration (`/etc/besmartandpro/sslbuddy.yaml`):
 
 ```yaml
 token: "your_token"
@@ -92,9 +92,9 @@ bsapmd --restart "/usr/sbin/service apache2 restart"
 - Using environment variables:
 
   ```bash
-  export MONITORING_BESMARTANDPRO_TOKEN="your_token"
-  export MONITORING_BESMARTANDPRO_CERT_ID="ID"
-  export MONITORING_BESMARTANDPRO_CERT_PATH="/etc/ssl/certs/cert1.pem"
+  export SSLBUDDY_TOKEN="your_token"
+  export SSLBUDDY_CERT_ID="ID"
+  export SSLBUDDY_CERT_PATH="/etc/ssl/certs/cert1.pem"
   bsapmd
   ```
 

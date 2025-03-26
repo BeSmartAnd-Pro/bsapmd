@@ -1,4 +1,4 @@
-"""Monitoring BeSmartAndPro Downloader"""
+"""SSLBuddy.App Downloader"""
 
 import importlib.metadata
 

@@ -7,8 +7,8 @@ import hashlib
 import importlib.metadata
 from bsapmd import __version__
 
-CONFIG_PATH = "/etc/besmartandpro/monitoring.yaml"
-DEFAULT_URL_TEMPLATE = "https://monitoring.besmartand.pro/smallend/{token}/certyfikat/{cert_id}"
+CONFIG_PATH = "/etc/besmartandpro/sslbuddy.yaml"
+DEFAULT_URL_TEMPLATE = "https://sslbuddy.app/smallend/{token}/certyfikat/{cert_id}"
 
 def load_config():
     """Load configuration from YAML file."""
@@ -20,7 +20,7 @@ def load_config():
 
 def get_token_from_env():
     """Get token from environment variable."""
-    return os.getenv("MONITORING_BESMARTANDPRO_TOKEN")
+    return os.getenv("SSLBUDDY_TOKEN")
 
 def calculate_checksum(file_path):
     """Calculate the SHA256 checksum of the given file."""
@@ -78,13 +78,13 @@ def main():
     token = args.token or get_token_from_env() or load_config().get('token')
     
     if not token:
-        print("No token provided. Use the --token argument, MONITORING_BESMARTANDPRO_TOKEN environment variable, or define it in the configuration file.")
+        print("No token provided. Use the --token argument, SSLBUDDY_TOKEN environment variable, or define it in the configuration file.")
         return
 
     # Get certificates from arguments or config file
     config = load_config()
-    cert_id = args.cert_id or os.getenv("MONITORING_BESMARTANDPRO_CERT_ID")
-    cert_path = args.cert_path or os.getenv("MONITORING_BESMARTANDPRO_CERT_PATH")
+    cert_id = args.cert_id or os.getenv("SSLBUDDY_CERT_ID")
+    cert_path = args.cert_path or os.getenv("SSLBUDDY_CERT_PATH")
 
     if cert_id and cert_path:
         existing_checksum = calculate_checksum(cert_path)
